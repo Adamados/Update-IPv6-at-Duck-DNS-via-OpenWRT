@@ -3,8 +3,8 @@
 # Configuring
 # MacAddr: is the MAC Address of device
 # TrafficRuleName: is the Traffic Rule Name at Network -> Firewall -> Traffic Rules
-# DuckDNSToken:
-# DuckDnsDomain:
+# DuckDNSToken: find it at your DuckDNS account e.g aaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa
+# DuckDnsDomain: your domain only, without .duckdns.com
 MacAddr=
 TrafficRuleName=
 DuckDNSToken=
