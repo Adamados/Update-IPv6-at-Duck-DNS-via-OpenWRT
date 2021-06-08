@@ -1,10 +1,11 @@
 #!/bin/sh
 
-#https://forum.openwrt.org/t/get-ipv6-address-of-server-for-ddns-update/71425/31
-# */5 * * * * /root/getipv6.sh -d "br-lan" -i "lan" >/dev/null 2>&1
-
+# Configuring
+# MacAddr: is the MAC Address of device
+# TrafficRuleName: is the Traffic Rule Name at Network -> Firewall -> Traffic Rules
 MacAddr=aa:aa:aa:aa:aa:aa
 TrafficRuleName=RULE.NAME
+# END of Configuring
 
 printf "\n"
 printf "Getting your IPv6 address... \n"
