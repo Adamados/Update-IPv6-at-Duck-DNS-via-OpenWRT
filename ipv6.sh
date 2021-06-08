@@ -41,7 +41,7 @@ do
             printf "Updating...\n"
             changed=1
 			printf "Answear from DuckDNS: "
-			curl --silent "https://www.duckdns.org/update?domains=${DuckDnsDomain}&token=&{DuckDNSToken}&ipv6=${getIPv6}"
+			curl --silent "https://www.duckdns.org/update?domains=${DuckDnsDomain}&token=${DuckDNSToken}&ipv6=${getIPv6}"
 			uci set firewall.@rule[$index].dest_ip=$getIPv6
             uci commit firewall
         else
