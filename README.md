@@ -1,12 +1,11 @@
-# Update-IPv6-via-OpenWRT-to-DuckDNS
-Script to update the IPv6 at DuckDNS via OpwnWRT 19.07
+# Update IPv6 at DuckDNS and Traffic Rules at OpenWRT
 
 I just edit the script that found here https://forum.openwrt.org/t/get-ipv6-address-of-server-for-ddns-update/71425/31 and modify it to fit my needs
 
 # How to Use it
 Create a Rule at Network -> Firewall -> Traffic Rules -> Add
 
-## GENERAL Settings
+### GENERAL Settings
 Protocol: TCP, UDP
 
 Source Zone: wan, wan6
@@ -17,7 +16,7 @@ Destination port:
 
 Action: accept
 
-## ADVANCED Settings
+### ADVANCED Settings
 Restrict to address family: IPv6 only
 
 # Script
