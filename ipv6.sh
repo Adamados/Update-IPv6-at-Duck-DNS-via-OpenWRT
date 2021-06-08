@@ -3,8 +3,12 @@
 # Configuring
 # MacAddr: is the MAC Address of device
 # TrafficRuleName: is the Traffic Rule Name at Network -> Firewall -> Traffic Rules
-MacAddr=aa:aa:aa:aa:aa:aa
-TrafficRuleName=RULE.NAME
+# DuckDNSToken:
+# DuckDnsDomain:
+MacAddr=
+TrafficRuleName=
+DuckDNSToken=
+DuckDnsDomain=
 # END of Configuring
 
 printf "\n"
@@ -37,7 +41,7 @@ do
             printf "Updating...\n"
             changed=1
 			printf "Answear from DuckDNS: "
-			curl --silent "https://www.duckdns.org/update?domains=indigoha&token=32e50cbd-b600-46e3-abff-13f2890c25a8&ipv6=${getIPv6}"
+			curl --silent "https://www.duckdns.org/update?domains=${DuckDnsDomain}&token=&{DuckDNSToken}&ipv6=${getIPv6}"
 			uci set firewall.@rule[$index].dest_ip=$getIPv6
             uci commit firewall
         else
