@@ -5,15 +5,17 @@
 # TrafficRuleName: is the Traffic Rule Name at Network -> Firewall -> Traffic Rules
 # DuckDNSToken: find it at your DuckDNS account e.g aaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa
 # DuckDnsDomain: your domain only, without .duckdns.com
-MacAddr=
-TrafficRuleName=
-DuckDNSToken=
-DuckDnsDomain=
+# IPv6ULAPrefix: Network -> Interface -> Global network options (tab)
+MacAddr=aa:bb:cc:dd:ee:ff
+TrafficRuleName=HA
+DuckDNSToken=32e50cbd-b600-46e3-abff-13f2890c25a8
+DuckDnsDomain=indigoha
+IPv6ULAPrefix=fdd9
 # END of Configuring
 
 printf "\n"
 printf "Getting your IPv6 address... \n"
-getIPv6=$(ip -6 neigh | grep "$MacAddr" | grep -v "fe80" | grep -v "fdd9" | cut -d" " -f1)
+getIPv6=$(ip -6 neigh | grep "$MacAddr" | grep -v "fe80" | grep -v "$IPv6ULAPrefix" | cut -d" " -f1)
 
 if [ "$getIPv6" = "" ]
 then
