@@ -22,6 +22,8 @@ Restrict to address family: IPv6 only
 # Script
 Put it somewhere e.g /root/ via WinSCP
 
+Edit the CONFIGURABLE settings
+
 Create a cronjob at OpenWRT System -> Scheduled Tasks
 
 ### To run the script every 5 min
