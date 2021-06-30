@@ -20,7 +20,7 @@ Action: accept
 Restrict to address family: IPv6 only
 
 # Script
-Put it somewhere e.g /root/ via WinSCP
+Put it somewhere e.g /root/ via WinSCP and give Execute permissions
 
 Edit the CONFIGURABLE settings
 
