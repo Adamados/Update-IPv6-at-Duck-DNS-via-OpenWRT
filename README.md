@@ -2,6 +2,9 @@
 
 I just edit the script that found here https://forum.openwrt.org/t/get-ipv6-address-of-server-for-ddns-update/71425/31 and modify it to fit my needs
 
+# Install at OpenWRT the following packages
+curl
+
 # How to Use it
 Create a Rule at Network -> Firewall -> Traffic Rules -> Add
 
