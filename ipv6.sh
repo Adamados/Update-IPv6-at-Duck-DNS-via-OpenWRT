@@ -19,7 +19,7 @@ getIPv6=$(ip -6 neigh | grep "$MacAddr" | grep -v "STALE" | grep -v "fe80" | gre
 
 if [ "$getIPv6" = "" ]
 then
-    printf "Failed to get IP."
+    printf "Failed to get IP.\n\n"
     exit 0
 fi
 
@@ -37,18 +37,18 @@ do
         dest_ip=$(uci get firewall.@rule[$index].dest_ip 2> /dev/null)
         printf "Your stored IPv6:  {$dest_ip} \n"
 
-        if [ "$dest_ip" != "$getIPv6" ]
-        then
-            printf "The IP has changed! \n"
+#        if [ "$dest_ip" != "$getIPv6" ]
+#        then
+#            printf "The IP has changed! \n"
             printf "Updating...\n"
             changed=1
 			printf "Answear from DuckDNS: "
 			curl --silent "https://www.duckdns.org/update?domains=${DuckDnsDomain}&token=${DuckDNSToken}&ipv6=${getIPv6}"
 			uci set firewall.@rule[$index].dest_ip=$getIPv6
-            uci commit firewall
-        else
-            printf "IP is the same, no changes made.\n\n"
-        fi
+            uci commit firewall			
+#        else
+#            printf "IP is the same, no changes made.\n\n"
+#        fi
 
         break 2
 	fi
