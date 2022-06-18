@@ -30,4 +30,4 @@ Edit the CONFIGURABLE settings
 Create a cronjob at OpenWRT System -> Scheduled Tasks
 
 ### To run the script every 5 min
-*/5 * * * * /root/ipv6.sh
+*/5 * * * * /root/getipv6.sh
