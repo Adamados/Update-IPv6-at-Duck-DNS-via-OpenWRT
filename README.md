@@ -27,7 +27,7 @@ Put it somewhere e.g /root/ via WinSCP and give Execute permissions
 
 Edit the CONFIGURABLE settings
 
-Create a cronjob at OpenWRT System -> Scheduled Tasks
+Create a cronjob at OpenWRT System -> [Scheduled Tasks]([url](https://openwrt.org/docs/guide-user/base-system/cron))
 
 ### To run the script every 5 min
 */5 * * * * /root/getipv6.sh
