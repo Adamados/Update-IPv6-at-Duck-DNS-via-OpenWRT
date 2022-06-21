@@ -7,6 +7,7 @@
 # DuckDnsDomain: your domain only, without .duckdns.com
 # IPv6ULAPrefix: Network -> Interface -> Global network options (tab)
 DevID=
+# MacAddr=
 TrafficRuleName=
 DuckDNSToken=
 DuckDnsDomain=
@@ -17,11 +18,12 @@ printf "\n"
 printf "Getting your IPv6 address... \n"
 # getIPv6=$(ip -6 neigh | grep "$MacAddr" | grep -v "STALE" | grep -v "fe80" | grep -v "$IPv6ULAPrefix" | cut -d" " -f1)
 # getIPv6=$(ip -6 neigh | grep "$MacAddr" | grep -v "fe80" | grep -v "$IPv6ULAPrefix" | cut -d" " -f1)
-getIPv6=$(ubus call dhcp ipv6leases | grep "$DevID" | grep -v "$IPv6ULAPrefix" | cut -f 4 -d ' ' -d '"')
+getIPv6=$(ubus call dhcp ipv6leases | grep 2a02 | grep "$DevID" | grep -v "$IPv6ULAPrefix" | cut -f 4 -d ' ' -d '"')
 
 if [ "$getIPv6" = "" ]
 then
     printf "Failed to get IP.\n\n"
+	logger "[VPN] - Failed to get IP..."
     exit 0
 fi
 
@@ -64,6 +66,7 @@ if [ "$LFRuleName" = "" ]
 then
 	printf "\n"
 	printf "Failed to find Rule name \n\n"
+	logger "[VPN] - Failed to find Rule name..."
 fi
 
 if [ $changed -eq 1 ] 
@@ -71,6 +74,7 @@ then
     printf "\nRestarting firewall... \n"
     /etc/init.d/firewall reload 2> /dev/null
     printf "All up to date. \n\n"
+	logger "[VPN] - All up to date..."
 fi
 
 exit 0
