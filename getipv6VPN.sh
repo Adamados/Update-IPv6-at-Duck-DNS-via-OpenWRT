@@ -6,12 +6,17 @@
 # DuckDNSToken: find it at your DuckDNS account e.g aaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa
 # DuckDnsDomain: your domain only, without .duckdns.com
 # IPv6ULAPrefix: Network -> Interface -> Global network options (tab)
-DevID=
+
+
 # MacAddr=
+DevID=
 TrafficRuleName=
 DuckDNSToken=
 DuckDnsDomain=
 IPv6ULAPrefix=
+# 
+
+
 # END of Configuring
 
 printf "\n"
@@ -19,6 +24,7 @@ printf "Getting your IPv6 address... \n"
 # getIPv6=$(ip -6 neigh | grep "$MacAddr" | grep -v "STALE" | grep -v "fe80" | grep -v "$IPv6ULAPrefix" | cut -d" " -f1)
 # getIPv6=$(ip -6 neigh | grep "$MacAddr" | grep -v "fe80" | grep -v "$IPv6ULAPrefix" | cut -d" " -f1)
 getIPv6=$(ubus call dhcp ipv6leases | grep 2a02 | grep "$DevID" | grep -v "$IPv6ULAPrefix" | cut -f 4 -d ' ' -d '"')
+
 
 if [ "$getIPv6" = "" ]
 then
